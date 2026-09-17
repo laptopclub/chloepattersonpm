@@ -1,5 +1,4 @@
 import { GoogleAnalytics } from "@laptopclub/foundation-analytics";
-import { SiteFooter } from "@laptopclub/foundation-ui";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
@@ -22,6 +21,19 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+function SiteFooter({ siteTitle }: { siteTitle: string }) {
+  return (
+    <footer className="border-t border-ink-base/15 bg-surface-canvas px-5 py-8 text-ink-muted sm:px-8 lg:px-10">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 text-xs font-bold uppercase tracking-[0.22em] sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} {siteTitle}</p>
+        <a className="transition hover:text-ink-base" href="#">
+          Built by laptopclub
+        </a>
+      </div>
+    </footer>
+  );
+}
+
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const [site, mode] = await Promise.all([getSiteSettings(), draftMode()]);
 
@@ -30,7 +42,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body>
         <div className="flex min-h-screen flex-col">
           <main className="flex-1">{children}</main>
-          <SiteFooter site={site} />
+          <SiteFooter siteTitle={site.title} />
         </div>
         <SanityLive />
         {mode.isEnabled ? (
