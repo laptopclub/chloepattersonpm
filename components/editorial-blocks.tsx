@@ -46,7 +46,7 @@ function sectionId(eyebrow?: string): string | undefined {
 
 function SectionFrame({ children, className = "", id }: { children: React.ReactNode; className?: string; id?: string }) {
   return (
-    <section className="p-3 sm:p-4 lg:p-8" id={id}>
+    <section className="p-3 sm:p-4 lg:p-6" id={id}>
       <div className={`mx-auto max-w-[112rem] overflow-hidden rounded-2xl bg-surface-canvas ${className}`}>{children}</div>
     </section>
   );
