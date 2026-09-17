@@ -5,11 +5,11 @@
 :root {
   --font-sans: Inter;
   /* Flexoki light palette: https://stephango.com/flexoki */
-  --color-brand-50: 255 231 206;
-  --color-brand-100: 254 211 175;
-  --color-brand-500: 203 97 32;
-  --color-brand-600: 188 82 21;
-  --color-brand-900: 64 32 13;
+  --color-brand-50: 237 238 207;
+  --color-brand-100: 221 226 178;
+  --color-brand-500: 118 141 33;
+  --color-brand-600: 102 128 11;
+  --color-brand-900: 37 45 9;
   --color-surface-canvas: 255 252 240;
   --color-surface-muted: 230 228 217;
   --color-ink-base: 16 15 15;

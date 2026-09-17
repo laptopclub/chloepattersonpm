@@ -56,7 +56,7 @@ function SectionFrame({ children, className = "", id }: { children: React.ReactN
 
 export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
   return (
-    <SectionFrame className="bg-brand-50 p-5 sm:p-8 lg:p-10">
+    <SectionFrame className="p-5 sm:p-8 lg:p-10">
       <div className="mx-auto grid min-h-[78vh] max-w-7xl grid-rows-[auto_1fr_auto]">
         <div className="flex items-center justify-between gap-4 border-b border-ink-base/15 pb-5 text-xs font-semibold uppercase tracking-[0.22em] text-ink-muted">
           <span>{block.eyebrow ?? "Operations · Systems · Frameworks"}</span>
