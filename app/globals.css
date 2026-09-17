@@ -16,5 +16,5 @@
 }
 
 body {
-  @apply bg-surface-canvas text-ink-base antialiased;
+  @apply bg-white text-ink-base antialiased;
 }

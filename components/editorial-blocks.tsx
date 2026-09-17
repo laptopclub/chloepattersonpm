@@ -44,10 +44,18 @@ function sectionId(eyebrow?: string): string | undefined {
   return normalized;
 }
 
+function SectionFrame({ children, className = "", id }: { children: React.ReactNode; className?: string; id?: string }) {
+  return (
+    <section className="p-3 sm:p-4" id={id}>
+      <div className={`mx-auto max-w-[112rem] overflow-hidden rounded-[2rem] border border-ink-base/15 bg-surface-canvas ${className}`}>{children}</div>
+    </section>
+  );
+}
+
 export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
   return (
-    <section className="relative overflow-hidden border-b border-ink-base/15 bg-surface-canvas px-5 py-8 sm:px-8 lg:px-10">
-      <div className="mx-auto grid min-h-[78vh] max-w-7xl grid-rows-[auto_1fr_auto] rounded-[2rem] border border-ink-base/15 bg-brand-50 p-5 shadow-[0_30px_80px_rgba(37,31,29,0.10)] sm:p-8 lg:p-10">
+    <SectionFrame className="bg-brand-50 p-5 shadow-[0_30px_80px_rgba(37,31,29,0.10)] sm:p-8 lg:p-10">
+      <div className="mx-auto grid min-h-[78vh] max-w-7xl grid-rows-[auto_1fr_auto]">
         <div className="flex items-center justify-between gap-4 border-b border-ink-base/15 pb-5 text-xs font-semibold uppercase tracking-[0.22em] text-ink-muted">
           <span>{block.eyebrow ?? "Operations · Systems · Frameworks"}</span>
           <span>Portfolio / 01</span>
@@ -73,7 +81,7 @@ export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
           <span>Operating rhythm</span>
         </div>
       </div>
-    </section>
+    </SectionFrame>
   );
 }
 
@@ -81,7 +89,7 @@ export function EditorialRichTextBlock({ block }: { block: RichTextBlockData }) 
   const content = (block.content ?? []) as RichTextParagraph[];
 
   return (
-    <section className="border-b border-ink-base/15 px-5 py-20 sm:px-8 lg:px-10">
+    <SectionFrame className="px-5 py-20 sm:px-8 lg:px-10">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.35fr_0.65fr]">
         <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-600">Brief</p>
         <div className="space-y-7">
@@ -108,7 +116,7 @@ export function EditorialRichTextBlock({ block }: { block: RichTextBlockData }) 
           })}
         </div>
       </div>
-    </section>
+    </SectionFrame>
   );
 }
 
@@ -116,7 +124,7 @@ export function EditorialFeatureGridBlock({ block }: { block: FeatureGridBlockDa
   const features = block.features ?? [];
 
   return (
-    <section className="border-b border-ink-base/15 px-5 py-20 sm:px-8 lg:px-10" id={sectionId(block.eyebrow)}>
+    <SectionFrame className="px-5 py-20 sm:px-8 lg:px-10" id={sectionId(block.eyebrow)}>
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[0.35fr_0.65fr]">
           <div>
@@ -131,9 +139,9 @@ export function EditorialFeatureGridBlock({ block }: { block: FeatureGridBlockDa
           </div>
         </div>
         {features.length ? (
-          <div className="mt-12 grid border-l border-t border-ink-base/15 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid overflow-hidden rounded-[1.5rem] border border-ink-base/15 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
-              <article className="min-h-72 border-b border-r border-ink-base/15 bg-surface-canvas p-6 transition hover:bg-brand-50" key={`${feature.title ?? "feature"}-${index}`}>
+              <article className="min-h-72 border-b border-r border-ink-base/15 bg-white/40 p-6 transition hover:bg-brand-50" key={`${feature.title ?? "feature"}-${index}`}>
                 <p className="mb-10 text-xs font-bold uppercase tracking-[0.28em] text-brand-600">{String(index + 1).padStart(2, "0")}</p>
                 <h3 className="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-ink-base">{feature.title ?? "Feature"}</h3>
                 {feature.body ? <p className="mt-5 text-sm leading-6 text-ink-muted">{feature.body}</p> : null}
@@ -142,14 +150,14 @@ export function EditorialFeatureGridBlock({ block }: { block: FeatureGridBlockDa
           </div>
         ) : null}
       </div>
-    </section>
+    </SectionFrame>
   );
 }
 
 export function EditorialCtaBlock({ block }: { block: CtaBlockData }) {
   return (
-    <section className="px-5 py-10 sm:px-8 lg:px-10" id="contact">
-      <div className="mx-auto max-w-7xl rounded-[2rem] bg-ink-base p-8 text-surface-canvas sm:p-12 lg:p-16">
+    <SectionFrame className="bg-ink-base p-8 text-surface-canvas sm:p-12 lg:p-16" id="contact">
+      <div className="mx-auto max-w-7xl">
         {block.eyebrow ? <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-100">{block.eyebrow}</p> : null}
         <div className="mt-8 grid gap-10 lg:grid-cols-[0.7fr_0.3fr] lg:items-end">
           <div>
@@ -168,7 +176,7 @@ export function EditorialCtaBlock({ block }: { block: CtaBlockData }) {
           </div>
         </div>
       </div>
-    </section>
+    </SectionFrame>
   );
 }
 

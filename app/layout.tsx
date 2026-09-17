@@ -23,12 +23,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 function SiteFooter({ siteTitle }: { siteTitle: string }) {
   return (
-    <footer className="border-t border-ink-base/15 bg-surface-canvas px-5 py-8 text-ink-muted sm:px-8 lg:px-10">
-      <div className="mx-auto flex max-w-7xl flex-col gap-4 text-xs font-bold uppercase tracking-[0.22em] sm:flex-row sm:items-center sm:justify-between">
-        <p>© {new Date().getFullYear()} {siteTitle}</p>
-        <a className="transition hover:text-ink-base" href="#">
-          Built by laptopclub
-        </a>
+    <footer className="p-3 sm:p-4">
+      <div className="mx-auto max-w-[112rem] rounded-[2rem] border border-ink-base/15 bg-surface-canvas px-5 py-8 text-ink-muted sm:px-8 lg:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 text-xs font-bold uppercase tracking-[0.22em] sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} {siteTitle}</p>
+          <a className="transition hover:text-ink-base" href="#">
+            Built by laptopclub
+          </a>
+        </div>
       </div>
     </footer>
   );
