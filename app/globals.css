@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: Inter;
+  --color-brand-50: 250 247 241;
+  --color-brand-100: 242 231 213;
+  --color-brand-500: 164 103 63;
+  --color-brand-600: 126 74 43;
+  --color-brand-900: 58 38 30;
+  --color-surface-canvas: 253 250 245;
+  --color-surface-muted: 242 231 213;
+  --color-ink-base: 37 31 29;
+  --color-ink-muted: 103 84 74;
+}
+
+body {
+  @apply bg-surface-canvas text-ink-base antialiased;
+}
