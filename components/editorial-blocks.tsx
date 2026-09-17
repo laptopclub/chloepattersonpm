@@ -45,9 +45,11 @@ function sectionId(eyebrow?: string): string | undefined {
 }
 
 function SectionFrame({ children, className = "", id }: { children: React.ReactNode; className?: string; id?: string }) {
+  const backgroundClass = className.includes("bg-") ? "" : "bg-surface-canvas";
+
   return (
     <section className="p-3 sm:p-4 lg:p-6" id={id}>
-      <div className={`mx-auto max-w-[112rem] overflow-hidden rounded-2xl bg-surface-canvas ${className}`}>{children}</div>
+      <div className={`mx-auto max-w-[112rem] overflow-hidden rounded-2xl ${backgroundClass} ${className}`}>{children}</div>
     </section>
   );
 }
@@ -156,21 +158,21 @@ export function EditorialFeatureGridBlock({ block }: { block: FeatureGridBlockDa
 
 export function EditorialCtaBlock({ block }: { block: CtaBlockData }) {
   return (
-    <SectionFrame className="bg-ink-base p-8 text-surface-canvas sm:p-12 lg:p-16" id="contact">
+    <SectionFrame className="bg-[rgb(102_128_11)] p-8 text-[rgb(255_252_240)] sm:p-12 lg:p-16" id="contact">
       <div className="mx-auto max-w-7xl">
-        {block.eyebrow ? <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-100">{block.eyebrow}</p> : null}
+        {block.eyebrow ? <p className="text-xs font-bold uppercase tracking-[0.28em] text-[rgb(237_238_207)]">{block.eyebrow}</p> : null}
         <div className="mt-8 grid gap-10 lg:grid-cols-[0.7fr_0.3fr] lg:items-end">
           <div>
             <h2 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-[-0.06em] sm:text-6xl">{block.title ?? "Ready to get started?"}</h2>
-            {block.body ? <p className="mt-6 max-w-2xl text-lg leading-8 text-surface-canvas/75">{block.body}</p> : null}
+            {block.body ? <p className="mt-6 max-w-2xl text-lg leading-8 text-[rgb(237_238_207)]">{block.body}</p> : null}
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
             <ActionLink
-              className="inline-flex rounded-full bg-surface-canvas px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-ink-base transition hover:bg-brand-100"
+              className="inline-flex rounded-full bg-[rgb(255_252_240)] px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-[rgb(26_30_12)] transition hover:bg-[rgb(237_238_207)]"
               link={block.primaryAction}
             />
             <ActionLink
-              className="inline-flex rounded-full border border-surface-canvas/30 px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-surface-canvas transition hover:border-surface-canvas"
+              className="inline-flex rounded-full border border-[rgb(237_238_207)] px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-[rgb(255_252_240)] transition hover:bg-[rgb(237_238_207)] hover:text-[rgb(26_30_12)]"
               link={block.secondaryAction}
             />
           </div>
