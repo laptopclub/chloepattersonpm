@@ -1,5 +1,5 @@
 import { GoogleAnalytics } from "@laptopclub/foundation-analytics";
-import { SiteShell } from "@laptopclub/foundation-ui";
+import { SiteFooter } from "@laptopclub/foundation-ui";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
@@ -28,7 +28,10 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang="en">
       <body>
-        <SiteShell site={site}>{children}</SiteShell>
+        <div className="flex min-h-screen flex-col">
+          <main className="flex-1">{children}</main>
+          <SiteFooter site={site} />
+        </div>
         <SanityLive />
         {mode.isEnabled ? (
           <>
