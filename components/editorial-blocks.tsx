@@ -47,14 +47,14 @@ function sectionId(eyebrow?: string): string | undefined {
 function SectionFrame({ children, className = "", id }: { children: React.ReactNode; className?: string; id?: string }) {
   return (
     <section className="p-3 sm:p-4" id={id}>
-      <div className={`mx-auto max-w-[112rem] overflow-hidden rounded-[2rem] border border-ink-base/15 bg-surface-canvas ${className}`}>{children}</div>
+      <div className={`mx-auto max-w-[112rem] overflow-hidden rounded-2xl bg-surface-canvas ${className}`}>{children}</div>
     </section>
   );
 }
 
 export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
   return (
-    <SectionFrame className="bg-brand-50 p-5 shadow-[0_30px_80px_rgba(37,31,29,0.10)] sm:p-8 lg:p-10">
+    <SectionFrame className="bg-brand-50 p-5 sm:p-8 lg:p-10">
       <div className="mx-auto grid min-h-[78vh] max-w-7xl grid-rows-[auto_1fr_auto]">
         <div className="flex items-center justify-between gap-4 border-b border-ink-base/15 pb-5 text-xs font-semibold uppercase tracking-[0.22em] text-ink-muted">
           <span>{block.eyebrow ?? "Operations · Systems · Frameworks"}</span>
@@ -67,7 +67,7 @@ export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
               {block.title ?? "Calm delivery systems for ambitious teams."}
             </h1>
           </div>
-          <div className="rounded-[1.75rem] border border-ink-base/15 bg-surface-canvas p-6 sm:p-8">
+          <div className="rounded-xl border border-ink-base/15 bg-surface-canvas p-6 sm:p-8">
             {block.body ? <p className="text-lg leading-8 text-ink-muted sm:text-xl">{block.body}</p> : null}
             <ActionLink
               className="mt-8 inline-flex rounded-full bg-ink-base px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-surface-canvas transition hover:bg-brand-600"
@@ -139,7 +139,7 @@ export function EditorialFeatureGridBlock({ block }: { block: FeatureGridBlockDa
           </div>
         </div>
         {features.length ? (
-          <div className="mt-12 grid overflow-hidden rounded-[1.5rem] border border-ink-base/15 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid overflow-hidden rounded-xl border border-ink-base/15 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <article className="min-h-72 border-b border-r border-ink-base/15 bg-white/40 p-6 transition hover:bg-brand-50" key={`${feature.title ?? "feature"}-${index}`}>
                 <p className="mb-10 text-xs font-bold uppercase tracking-[0.28em] text-brand-600">{String(index + 1).padStart(2, "0")}</p>
