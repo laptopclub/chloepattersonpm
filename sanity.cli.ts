@@ -8,6 +8,9 @@ export default defineCliConfig({
     dataset,
     projectId
   },
+  deployment: {
+    appId: "gzl5lsrx1bfgxa9jbgfr7h5a"
+  },
   typegen: {
     generates: "./sanity.types.ts",
     path: ["./app/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}", "./node_modules/@laptopclub/foundation-cms/dist/**/*.{js,mjs,ts,tsx}"],
