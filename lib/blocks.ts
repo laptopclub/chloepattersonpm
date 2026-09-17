@@ -1,4 +1,5 @@
 import { createBlockRegistry } from "@laptopclub/foundation-ui";
+import { editorialBlockRegistryExtension } from "../components/editorial-blocks";
 
-// Add site-specific block renderers here. Foundation renderers remain available by default.
-export const siteBlockRegistry = createBlockRegistry({});
+// Site-specific editorial renderers override selected Foundation defaults.
+export const siteBlockRegistry = createBlockRegistry(editorialBlockRegistryExtension);
