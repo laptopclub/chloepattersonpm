@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 function SiteFooter({ siteTitle }: { siteTitle: string }) {
   return (
-    <footer className="bg-white px-5 py-8 text-sm text-ink-muted sm:px-8 lg:px-10">
+    <footer className="bg-surface-muted px-5 py-8 text-sm text-ink-muted sm:px-8 lg:px-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} {siteTitle}</p>
         <a className="transition hover:text-ink-base" href="#">
