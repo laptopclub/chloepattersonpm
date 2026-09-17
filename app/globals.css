@@ -4,15 +4,16 @@
 
 :root {
   --font-sans: Inter;
-  --color-brand-50: 250 247 241;
-  --color-brand-100: 242 231 213;
-  --color-brand-500: 164 103 63;
-  --color-brand-600: 126 74 43;
-  --color-brand-900: 58 38 30;
-  --color-surface-canvas: 253 250 245;
-  --color-surface-muted: 242 231 213;
-  --color-ink-base: 37 31 29;
-  --color-ink-muted: 103 84 74;
+  /* Flexoki light palette: https://stephango.com/flexoki */
+  --color-brand-50: 255 231 206;
+  --color-brand-100: 254 211 175;
+  --color-brand-500: 203 97 32;
+  --color-brand-600: 188 82 21;
+  --color-brand-900: 64 32 13;
+  --color-surface-canvas: 255 252 240;
+  --color-surface-muted: 242 240 229;
+  --color-ink-base: 16 15 15;
+  --color-ink-muted: 111 110 105;
 }
 
 body {
