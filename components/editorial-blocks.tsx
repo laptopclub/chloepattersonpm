@@ -1,4 +1,5 @@
 import type { BlockComponent, CtaBlockData, FeatureGridBlockData, HeroBlockData, LinkData, RichTextBlockData } from "@laptopclub/foundation-ui";
+import Image from "next/image";
 
 type RichTextSpan = {
   _type: "span";
@@ -95,10 +96,12 @@ export function AboutChloeCard() {
             </p>
           </div>
         </div>
-        <div className="min-h-[24rem] lg:min-h-full">
-          <img
+        <div className="relative min-h-[24rem] lg:min-h-full">
+          <Image
             alt="Chloe Patterson"
-            className="h-full w-full object-cover"
+            className="object-cover"
+            fill
+            sizes="(min-width: 1024px) 42vw, 100vw"
             src="https://media.licdn.com/dms/image/v2/D4E03AQEUZR54istDgg/profile-displayphoto-crop_800_800/B4EZ7Z1i7_HwAI-/0/1781771153914?e=1791417600&v=beta&t=Jdee2C-9eZKL4ik8-Z54-dw4NIq-71LjiED5AY-Y5O4"
           />
         </div>
