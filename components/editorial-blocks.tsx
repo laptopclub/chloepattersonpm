@@ -63,7 +63,8 @@ export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
           <span className="block font-serif italic tracking-[-0.05em]">Chloe</span>
           <span className="block font-black uppercase">Patterson</span>
         </h1>
-        <div className="mt-8 max-w-3xl border-t border-ink-base/15 pt-7 sm:mt-10 lg:mt-12">
+        <div className="mt-8 flex max-w-3xl flex-col items-center sm:mt-10 lg:mt-12">
+          <span aria-hidden="true" className="mb-7 block h-[3px] w-16 rounded-full bg-brand-600" />
           <p className="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-ink-base sm:text-3xl lg:text-4xl">Project Management</p>
           <p className="mt-5 text-xs font-bold uppercase tracking-[0.24em] text-brand-600 sm:text-sm">Operations - systems - frameworks</p>
           <p className="mt-4 max-w-2xl text-lg leading-7 text-ink-muted sm:text-xl">Streamlining delivery and building scalable workflows.</p>
