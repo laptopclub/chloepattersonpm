@@ -80,7 +80,7 @@ export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
         </h1>
         <div className="mt-8 flex max-w-3xl flex-col items-center sm:mt-10 lg:mt-12">
           <span aria-hidden="true" className="mb-7 block h-[3px] w-16 rounded-full bg-brand-600" />
-          <p className="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-ink-base sm:text-3xl lg:text-4xl">Project Management</p>
+          <p className="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-ink-base sm:text-3xl lg:text-4xl">Project Manager</p>
           <p className="mt-5 text-xs font-bold uppercase text-brand-600 sm:text-sm">Operations - systems - frameworks</p>
           <p className="mt-4 max-w-2xl text-lg leading-7 text-ink-muted sm:text-xl">Streamlining delivery and building scalable workflows.</p>
         </div>
