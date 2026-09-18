@@ -44,28 +44,29 @@ function sectionId(eyebrow?: string): string | undefined {
   return normalized;
 }
 
-function SectionFrame({ children, className = "", id }: { children: React.ReactNode; className?: string; id?: string }) {
+function SectionFrame({ children, className = "", fullHeight = false, id }: { children: React.ReactNode; className?: string; fullHeight?: boolean; id?: string }) {
   const backgroundClass = className.includes("bg-") ? "" : "bg-surface-canvas";
+  const sectionClassName = fullHeight ? "flex p-3 sm:min-h-screen sm:p-4 lg:p-6" : "p-3 sm:p-4 lg:p-6";
 
   return (
-    <section className="p-3 sm:p-4 lg:p-6" id={id}>
-      <div className={`mx-auto max-w-[112rem] overflow-hidden rounded-2xl ${backgroundClass} ${className}`}>{children}</div>
+    <section className={sectionClassName} id={id}>
+      <div className={`mx-auto max-w-[112rem] flex-1 overflow-hidden rounded-2xl ${backgroundClass} ${className}`}>{children}</div>
     </section>
   );
 }
 
 export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
   return (
-    <SectionFrame className="p-5 sm:p-8 lg:p-10">
-      <div className="mx-auto flex min-h-[calc(100svh-1.5rem)] max-w-7xl flex-col justify-center py-14 sm:min-h-[calc(100svh-2rem)] lg:min-h-[calc(100svh-3rem)] lg:py-20">
-        <h1 className="text-6xl leading-[0.82] tracking-[-0.08em] text-ink-base sm:text-8xl lg:text-[11rem]">
-          <span className="block font-serif italic tracking-[-0.06em]">Chloe</span>
+    <SectionFrame className="p-5 sm:p-8 lg:p-10" fullHeight>
+      <div className="mx-auto flex h-full max-w-7xl flex-col justify-center py-12 sm:py-14 lg:py-16">
+        <h1 className="text-5xl leading-[0.84] tracking-[-0.07em] text-ink-base sm:text-7xl lg:text-9xl">
+          <span className="block font-serif italic tracking-[-0.05em]">Chloe</span>
           <span className="block font-black uppercase">Patterson</span>
         </h1>
-        <div className="mt-10 max-w-3xl border-t border-ink-base/15 pt-8 sm:mt-12 lg:mt-16">
-          <p className="text-3xl font-black uppercase leading-none tracking-[-0.04em] text-ink-base sm:text-4xl lg:text-5xl">Project Management</p>
-          <p className="mt-6 text-sm font-bold uppercase tracking-[0.26em] text-brand-600 sm:text-base">Operations - systems - frameworks</p>
-          <p className="mt-4 max-w-2xl text-xl leading-8 text-ink-muted sm:text-2xl">Streamlining delivery and building scalable workflows.</p>
+        <div className="mt-8 max-w-3xl border-t border-ink-base/15 pt-7 sm:mt-10 lg:mt-12">
+          <p className="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-ink-base sm:text-3xl lg:text-4xl">Project Management</p>
+          <p className="mt-5 text-xs font-bold uppercase tracking-[0.24em] text-brand-600 sm:text-sm">Operations - systems - frameworks</p>
+          <p className="mt-4 max-w-2xl text-lg leading-7 text-ink-muted sm:text-xl">Streamlining delivery and building scalable workflows.</p>
           <ActionLink
             className="mt-8 inline-flex rounded-full bg-ink-base px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-surface-canvas transition hover:bg-brand-600"
             link={block.cta}
