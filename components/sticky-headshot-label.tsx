@@ -48,8 +48,8 @@ export function StickyHeadshotLabel() {
       <div
         className={
           fixedLayout.isFixed
-            ? "fixed top-6 z-50 rounded-xl bg-surface-muted/50 px-5 py-4 text-right text-brand-600 shadow-sm backdrop-blur"
-            : "rounded-xl bg-surface-muted/50 px-5 py-4 text-right text-brand-600 shadow-sm backdrop-blur"
+            ? "fixed top-6 z-50 rounded-xl bg-surface-muted/80 px-5 py-4 text-right text-brand-600 shadow-sm backdrop-blur"
+            : "rounded-xl bg-surface-muted/80 px-5 py-4 text-right text-brand-600 shadow-sm backdrop-blur"
         }
         ref={labelRef}
         style={fixedLayout.isFixed ? { left: fixedLayout.left, width: fixedLayout.width } : undefined}
