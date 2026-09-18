@@ -45,13 +45,26 @@ function sectionId(eyebrow?: string): string | undefined {
   return normalized;
 }
 
-function SectionFrame({ children, className = "", fullHeight = false, id }: { children: React.ReactNode; className?: string; fullHeight?: boolean; id?: string }) {
+function SectionFrame({
+  children,
+  className = "",
+  clip = true,
+  fullHeight = false,
+  id
+}: {
+  children: React.ReactNode;
+  className?: string;
+  clip?: boolean;
+  fullHeight?: boolean;
+  id?: string;
+}) {
   const backgroundClass = className.includes("bg-") ? "" : "bg-surface-canvas";
+  const clipClass = clip ? "overflow-hidden" : "";
   const sectionClassName = fullHeight ? "flex p-3 sm:min-h-screen sm:p-4 lg:p-6" : "p-3 sm:p-4 lg:p-6";
 
   return (
     <section className={sectionClassName} id={id}>
-      <div className={`mx-auto max-w-[112rem] flex-1 overflow-hidden rounded-2xl ${backgroundClass} ${className}`}>{children}</div>
+      <div className={`mx-auto max-w-[112rem] flex-1 rounded-2xl ${clipClass} ${backgroundClass} ${className}`}>{children}</div>
     </section>
   );
 }
@@ -67,7 +80,7 @@ export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
         <div className="mt-8 flex max-w-3xl flex-col items-center sm:mt-10 lg:mt-12">
           <span aria-hidden="true" className="mb-7 block h-[3px] w-16 rounded-full bg-brand-600" />
           <p className="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-ink-base sm:text-3xl lg:text-4xl">Project Management</p>
-          <p className="mt-5 text-xs font-bold uppercase tracking-[0.24em] text-brand-600 sm:text-sm">Operations - systems - frameworks</p>
+          <p className="mt-5 text-xs font-bold uppercase text-brand-600 sm:text-sm">Operations - systems - frameworks</p>
           <p className="mt-4 max-w-2xl text-lg leading-7 text-ink-muted sm:text-xl">Streamlining delivery and building scalable workflows.</p>
         </div>
       </div>
@@ -77,10 +90,10 @@ export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
 
 export function AboutChloeCard() {
   return (
-    <SectionFrame className="p-0">
-      <div className="grid min-h-[34rem] lg:grid-cols-[0.58fr_0.42fr]">
+    <SectionFrame className="p-0" clip={false}>
+      <div className="grid min-h-[34rem] rounded-2xl bg-surface-canvas lg:grid-cols-[0.58fr_0.42fr]">
         <div className="flex flex-col justify-center px-5 py-16 sm:px-8 lg:px-16 lg:py-20">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-600">About Chloe</p>
+          <p className="text-xs font-bold uppercase text-brand-600">About Chloe</p>
           <h2 className="mt-8 max-w-3xl text-4xl font-black uppercase leading-none tracking-[-0.05em] text-ink-base sm:text-5xl">
             Delivery leadership for teams ready to work with more clarity.
           </h2>
@@ -96,17 +109,17 @@ export function AboutChloeCard() {
             </p>
           </div>
         </div>
-        <div className="relative grid min-h-[24rem] lg:min-h-full">
+        <div className="relative grid min-h-[24rem] overflow-hidden rounded-b-2xl lg:min-h-full lg:overflow-visible lg:rounded-b-none lg:rounded-r-2xl">
           <Image
             alt="Chloe Patterson"
-            className="col-start-1 row-start-1 object-cover"
+            className="col-start-1 row-start-1 rounded-b-2xl object-cover lg:rounded-b-none lg:rounded-r-2xl"
             fill
             sizes="(min-width: 1024px) 42vw, 100vw"
             src="https://media.licdn.com/dms/image/v2/D4E03AQEUZR54istDgg/profile-displayphoto-crop_800_800/B4EZ7Z1i7_HwAI-/0/1781771153914?e=1791417600&v=beta&t=Jdee2C-9eZKL4ik8-Z54-dw4NIq-71LjiED5AY-Y5O4"
           />
           <div className="sticky top-6 z-10 col-start-1 row-start-1 m-5 justify-self-end self-start rounded-xl bg-surface-canvas/90 px-5 py-4 text-right text-brand-600 shadow-sm backdrop-blur sm:m-6">
-            <p className="text-base font-black uppercase leading-none tracking-[-0.03em]">Chloe Patterson</p>
-            <p className="mt-2 text-xs font-bold uppercase tracking-[0.22em]">Project Manager</p>
+            <p className="text-base font-black uppercase leading-none">Chloe Patterson</p>
+            <p className="mt-2 text-xs font-bold uppercase">Project Manager</p>
           </div>
         </div>
       </div>
@@ -120,7 +133,7 @@ export function EditorialRichTextBlock({ block }: { block: RichTextBlockData }) 
   return (
     <SectionFrame className="px-5 py-20 sm:px-8 lg:px-10">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.35fr_0.65fr]">
-        <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-600">Brief</p>
+        <p className="text-xs font-bold uppercase text-brand-600">Brief</p>
         <div className="space-y-7">
           {content.map((item, index) => {
             const text = getText(item);
@@ -157,7 +170,7 @@ export function EditorialFeatureGridBlock({ block }: { block: FeatureGridBlockDa
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[0.35fr_0.65fr]">
           <div>
-            {block.eyebrow ? <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-600">{block.eyebrow}</p> : null}
+            {block.eyebrow ? <p className="text-xs font-bold uppercase text-brand-600">{block.eyebrow}</p> : null}
             <p className="mt-8 hidden text-8xl font-black leading-none tracking-[-0.08em] text-brand-100 lg:block">{features.length.toString().padStart(2, "0")}</p>
           </div>
           <div>
@@ -171,7 +184,7 @@ export function EditorialFeatureGridBlock({ block }: { block: FeatureGridBlockDa
           <div className="mt-12 grid overflow-hidden rounded-xl border border-ink-base/15 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <article className="min-h-72 border-b border-r border-ink-base/15 bg-white/40 p-6 transition hover:bg-brand-50" key={`${feature.title ?? "feature"}-${index}`}>
-                <p className="mb-10 text-xs font-bold uppercase tracking-[0.28em] text-brand-600">{String(index + 1).padStart(2, "0")}</p>
+                <p className="mb-10 text-xs font-bold uppercase text-brand-600">{String(index + 1).padStart(2, "0")}</p>
                 <h3 className="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-ink-base">{feature.title ?? "Feature"}</h3>
                 {feature.body ? <p className="mt-5 text-sm leading-6 text-ink-muted">{feature.body}</p> : null}
               </article>
@@ -187,7 +200,7 @@ export function EditorialCtaBlock({ block }: { block: CtaBlockData }) {
   return (
     <SectionFrame className="bg-brand-600 p-8 text-surface-canvas sm:p-12 lg:p-16" id="contact">
       <div className="mx-auto max-w-7xl">
-        {block.eyebrow ? <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-50">{block.eyebrow}</p> : null}
+        {block.eyebrow ? <p className="text-xs font-bold uppercase text-brand-50">{block.eyebrow}</p> : null}
         <div className="mt-8 grid gap-10 lg:grid-cols-[0.7fr_0.3fr] lg:items-end">
           <div>
             <h2 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-[-0.06em] sm:text-6xl">{block.title ?? "Ready to get started?"}</h2>
@@ -195,11 +208,11 @@ export function EditorialCtaBlock({ block }: { block: CtaBlockData }) {
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
             <ActionLink
-              className="inline-flex rounded-full bg-surface-canvas px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-brand-900 transition hover:bg-brand-50"
+              className="inline-flex rounded-full bg-surface-canvas px-6 py-3 text-sm font-bold uppercase text-brand-900 transition hover:bg-brand-50"
               link={block.primaryAction}
             />
             <ActionLink
-              className="inline-flex rounded-full border border-brand-50 px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-surface-canvas transition hover:bg-brand-50 hover:text-brand-900"
+              className="inline-flex rounded-full border border-brand-50 px-6 py-3 text-sm font-bold uppercase text-surface-canvas transition hover:bg-brand-50 hover:text-brand-900"
               link={block.secondaryAction}
             />
           </div>
