@@ -74,6 +74,39 @@ export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
   );
 }
 
+export function AboutChloeCard() {
+  return (
+    <SectionFrame className="p-0">
+      <div className="grid min-h-[34rem] lg:grid-cols-[0.58fr_0.42fr]">
+        <div className="flex flex-col justify-center px-5 py-16 sm:px-8 lg:px-16 lg:py-20">
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-600">About Chloe</p>
+          <h2 className="mt-8 max-w-3xl text-4xl font-black uppercase leading-none tracking-[-0.05em] text-ink-base sm:text-5xl">
+            Delivery leadership for teams ready to work with more clarity.
+          </h2>
+          <div className="mt-8 space-y-6 text-lg leading-8 text-ink-muted">
+            <p>
+              Chloe Patterson is a project management specialist focused on helping teams create calmer, clearer ways of delivering work. She brings structure to complex programmes, aligns stakeholders, and turns moving parts into practical delivery rhythms.
+            </p>
+            <p>
+              Her work spans operations, systems, and frameworks, with a focus on streamlining workflows, improving accountability, and building repeatable processes that can scale with the team.
+            </p>
+            <p>
+              Chloe is especially well suited to teams that need someone to connect strategy with delivery, untangle operational friction, and keep momentum moving without adding unnecessary complexity.
+            </p>
+          </div>
+        </div>
+        <div className="min-h-[24rem] lg:min-h-full">
+          <img
+            alt="Chloe Patterson"
+            className="h-full w-full object-cover"
+            src="https://media.licdn.com/dms/image/v2/D4E03AQEUZR54istDgg/profile-displayphoto-crop_800_800/B4EZ7Z1i7_HwAI-/0/1781771153914?e=1791417600&v=beta&t=Jdee2C-9eZKL4ik8-Z54-dw4NIq-71LjiED5AY-Y5O4"
+          />
+        </div>
+      </div>
+    </SectionFrame>
+  );
+}
+
 export function EditorialRichTextBlock({ block }: { block: RichTextBlockData }) {
   const content = (block.content ?? []) as RichTextParagraph[];
 

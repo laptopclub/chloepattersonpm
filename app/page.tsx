@@ -2,6 +2,7 @@ import { pageBySlugQuery } from "@laptopclub/foundation-cms/queries";
 import { BlockRenderer, type PageBlock } from "@laptopclub/foundation-ui";
 import type { Metadata } from "next";
 import type { PageBySlugQueryResult } from "../lib/sanity-query-types";
+import { AboutChloeCard } from "../components/editorial-blocks";
 import { siteBlockRegistry } from "../lib/blocks";
 import { env } from "../lib/env";
 import { sanityFetch } from "../lib/live";
@@ -42,11 +43,14 @@ export default async function HomePage() {
   const page = await getHomePage();
   const imageConfig = { dataset: env.sanity.dataset, projectId: env.sanity.projectId };
 
+  const blocks = page?.blocks?.length ? (page.blocks as PageBlock[]) : fallbackBlocks;
+  const [firstBlock, ...remainingBlocks] = blocks;
+
   return (
-    <BlockRenderer
-      blocks={page?.blocks?.length ? (page.blocks as PageBlock[]) : fallbackBlocks}
-      imageConfig={imageConfig}
-      registry={siteBlockRegistry}
-    />
+    <>
+      {firstBlock ? <BlockRenderer blocks={[firstBlock]} imageConfig={imageConfig} registry={siteBlockRegistry} /> : null}
+      <AboutChloeCard />
+      {remainingBlocks.length ? <BlockRenderer blocks={remainingBlocks} imageConfig={imageConfig} registry={siteBlockRegistry} /> : null}
+    </>
   );
 }
