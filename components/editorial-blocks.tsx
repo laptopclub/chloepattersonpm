@@ -86,13 +86,13 @@ export function AboutChloeCard() {
           </h2>
           <div className="mt-8 space-y-6 text-lg leading-8 text-ink-muted">
             <p>
-              Chloe Patterson is a project management specialist focused on helping teams create calmer, clearer ways of delivering work. She brings structure to complex programmes, aligns stakeholders, and turns moving parts into practical delivery rhythms.
+              I&apos;m a project management specialist focused on helping teams create calmer, clearer ways of delivering work. I bring structure to complex programmes, align stakeholders, and turn moving parts into practical delivery rhythms.
             </p>
             <p>
-              Her work spans operations, systems, and frameworks, with a focus on streamlining workflows, improving accountability, and building repeatable processes that can scale with the team.
+              My work spans operations, systems, and frameworks, with a focus on streamlining workflows, improving accountability, and building repeatable processes that can scale with the team.
             </p>
             <p>
-              Chloe is especially well suited to teams that need someone to connect strategy with delivery, untangle operational friction, and keep momentum moving without adding unnecessary complexity.
+              I&apos;m especially well suited to teams that need someone to connect strategy with delivery, untangle operational friction, and keep momentum moving without adding unnecessary complexity.
             </p>
           </div>
         </div>

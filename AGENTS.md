@@ -7,6 +7,11 @@ This is a guinea-pig consumer site for `laptopclub/foundation`.
 - `README.md`: setup and validation
 - Foundation guidance: https://github.com/laptopclub/foundation/blob/main/AGENTS.md
 
+## Content voice
+
+- Write site copy in first person from Chloe's perspective.
+- Prefer phrasing like "I'm a detail-oriented project manager" over third-person phrasing like "Chloe does X, Y and Z".
+
 ## Boundaries
 
 - Keep Chloe-specific content, styling and composition in this repository.
