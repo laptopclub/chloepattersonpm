@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-function SiteFooter({ siteTitle }: { siteTitle: string }) {
+function SiteFooter() {
   return (
     <footer className="px-5 py-8 text-sm text-ink-muted sm:px-8 lg:px-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -42,7 +42,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body>
         <div className="flex min-h-screen flex-col bg-surface-muted">
           <main className="flex-1">{children}</main>
-          <SiteFooter siteTitle={site.title} />
+          <SiteFooter />
         </div>
         <SanityLive />
         {mode.isEnabled ? (
