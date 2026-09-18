@@ -26,9 +26,12 @@ function SiteFooter() {
     <footer className="px-5 py-8 text-sm text-ink-muted sm:px-8 lg:px-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
         <p>© {new Date().getFullYear()} Chloe Patterson</p>
-        <a className="transition hover:text-ink-base" href="#">
-          Built by laptopclub
-        </a>
+        <p>
+          Built by{" "}
+          <a className="transition hover:text-ink-base" href="#">
+            laptopclub
+          </a>
+        </p>
       </div>
     </footer>
   );
