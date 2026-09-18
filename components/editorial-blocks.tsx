@@ -58,7 +58,7 @@ function SectionFrame({ children, className = "", fullHeight = false, id }: { ch
 export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
   return (
     <SectionFrame className="p-5 sm:p-8 lg:p-10" fullHeight>
-      <div className="mx-auto flex h-full max-w-7xl flex-col justify-center py-12 sm:py-14 lg:py-16">
+      <div className="mx-auto flex h-full max-w-7xl flex-col items-center justify-center py-12 text-center sm:py-14 lg:py-16">
         <h1 className="text-5xl leading-[0.84] tracking-[-0.07em] text-ink-base sm:text-7xl lg:text-9xl">
           <span className="block font-serif italic tracking-[-0.05em]">Chloe</span>
           <span className="block font-black uppercase">Patterson</span>
@@ -67,10 +67,6 @@ export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
           <p className="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-ink-base sm:text-3xl lg:text-4xl">Project Management</p>
           <p className="mt-5 text-xs font-bold uppercase tracking-[0.24em] text-brand-600 sm:text-sm">Operations - systems - frameworks</p>
           <p className="mt-4 max-w-2xl text-lg leading-7 text-ink-muted sm:text-xl">Streamlining delivery and building scalable workflows.</p>
-          <ActionLink
-            className="mt-8 inline-flex rounded-full bg-ink-base px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-surface-canvas transition hover:bg-brand-600"
-            link={block.cta}
-          />
         </div>
       </div>
     </SectionFrame>
