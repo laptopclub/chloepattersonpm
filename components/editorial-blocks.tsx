@@ -57,30 +57,19 @@ function SectionFrame({ children, className = "", id }: { children: React.ReactN
 export function EditorialHeroBlock({ block }: { block: HeroBlockData }) {
   return (
     <SectionFrame className="p-5 sm:p-8 lg:p-10">
-      <div className="mx-auto grid min-h-[78vh] max-w-7xl grid-rows-[auto_1fr_auto]">
-        <div className="flex items-center justify-between gap-4 border-b border-ink-base/15 pb-5 text-xs font-semibold uppercase tracking-[0.22em] text-ink-muted">
-          <span>{block.eyebrow ?? "Operations · Systems · Frameworks"}</span>
-          <span>Portfolio / 01</span>
-        </div>
-        <div className="grid items-center gap-10 py-14 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
-          <div>
-            <p className="mb-6 max-w-xl text-sm font-semibold uppercase tracking-[0.3em] text-brand-600">Project Management</p>
-            <h1 className="max-w-5xl text-5xl font-black uppercase leading-[0.86] tracking-[-0.08em] text-ink-base sm:text-7xl lg:text-8xl">
-              {block.title ?? "Calm delivery systems for ambitious teams."}
-            </h1>
-          </div>
-          <div className="rounded-xl border border-ink-base/15 bg-surface-canvas p-6 sm:p-8">
-            {block.body ? <p className="text-lg leading-8 text-ink-muted sm:text-xl">{block.body}</p> : null}
-            <ActionLink
-              className="mt-8 inline-flex rounded-full bg-ink-base px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-surface-canvas transition hover:bg-brand-600"
-              link={block.cta}
-            />
-          </div>
-        </div>
-        <div className="grid gap-3 border-t border-ink-base/15 pt-5 text-xs font-semibold uppercase tracking-[0.22em] text-ink-muted sm:grid-cols-3">
-          <span>Clarity</span>
-          <span>Momentum</span>
-          <span>Operating rhythm</span>
+      <div className="mx-auto flex min-h-[calc(100svh-1.5rem)] max-w-7xl flex-col justify-center py-14 sm:min-h-[calc(100svh-2rem)] lg:min-h-[calc(100svh-3rem)] lg:py-20">
+        <h1 className="text-6xl leading-[0.82] tracking-[-0.08em] text-ink-base sm:text-8xl lg:text-[11rem]">
+          <span className="block font-serif italic tracking-[-0.06em]">Chloe</span>
+          <span className="block font-black uppercase">Patterson</span>
+        </h1>
+        <div className="mt-10 max-w-3xl border-t border-ink-base/15 pt-8 sm:mt-12 lg:mt-16">
+          <p className="text-3xl font-black uppercase leading-none tracking-[-0.04em] text-ink-base sm:text-4xl lg:text-5xl">Project Management</p>
+          <p className="mt-6 text-sm font-bold uppercase tracking-[0.26em] text-brand-600 sm:text-base">Operations - systems - frameworks</p>
+          <p className="mt-4 max-w-2xl text-xl leading-8 text-ink-muted sm:text-2xl">Streamlining delivery and building scalable workflows.</p>
+          <ActionLink
+            className="mt-8 inline-flex rounded-full bg-ink-base px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-surface-canvas transition hover:bg-brand-600"
+            link={block.cta}
+          />
         </div>
       </div>
     </SectionFrame>
