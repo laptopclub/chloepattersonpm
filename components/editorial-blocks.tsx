@@ -1,5 +1,6 @@
 import type { BlockComponent, CtaBlockData, FeatureGridBlockData, HeroBlockData, LinkData, RichTextBlockData } from "@laptopclub/foundation-ui";
 import Image from "next/image";
+import { StickyHeadshotLabel } from "./sticky-headshot-label";
 
 type RichTextSpan = {
   _type: "span";
@@ -117,10 +118,7 @@ export function AboutChloeCard() {
             sizes="(min-width: 1024px) 42vw, 100vw"
             src="https://media.licdn.com/dms/image/v2/D4E03AQEUZR54istDgg/profile-displayphoto-crop_800_800/B4EZ7Z1i7_HwAI-/0/1781771153914?e=1791417600&v=beta&t=Jdee2C-9eZKL4ik8-Z54-dw4NIq-71LjiED5AY-Y5O4"
           />
-          <div className="sticky top-6 z-10 col-start-1 row-start-1 m-5 justify-self-end self-start rounded-xl bg-surface-canvas/90 px-5 py-4 text-right text-brand-600 shadow-sm backdrop-blur sm:m-6">
-            <p className="text-base font-black uppercase leading-none">Chloe Patterson</p>
-            <p className="mt-2 text-xs font-bold uppercase">Project Manager</p>
-          </div>
+          <StickyHeadshotLabel />
         </div>
       </div>
     </SectionFrame>
