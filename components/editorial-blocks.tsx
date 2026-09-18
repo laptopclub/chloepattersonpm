@@ -96,14 +96,18 @@ export function AboutChloeCard() {
             </p>
           </div>
         </div>
-        <div className="relative min-h-[24rem] lg:min-h-full">
+        <div className="relative grid min-h-[24rem] lg:min-h-full">
           <Image
             alt="Chloe Patterson"
-            className="object-cover"
+            className="col-start-1 row-start-1 object-cover"
             fill
             sizes="(min-width: 1024px) 42vw, 100vw"
             src="https://media.licdn.com/dms/image/v2/D4E03AQEUZR54istDgg/profile-displayphoto-crop_800_800/B4EZ7Z1i7_HwAI-/0/1781771153914?e=1791417600&v=beta&t=Jdee2C-9eZKL4ik8-Z54-dw4NIq-71LjiED5AY-Y5O4"
           />
+          <div className="sticky top-6 z-10 col-start-1 row-start-1 m-5 justify-self-end self-start rounded-xl bg-surface-canvas/90 px-5 py-4 text-right text-brand-600 shadow-sm backdrop-blur sm:m-6">
+            <p className="text-base font-black uppercase leading-none tracking-[-0.03em]">Chloe Patterson</p>
+            <p className="mt-2 text-xs font-bold uppercase tracking-[0.22em]">Project Manager</p>
+          </div>
         </div>
       </div>
     </SectionFrame>
