@@ -17,24 +17,14 @@ export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: schema.json
 export type RichTextBlock = {
   _type: "richTextBlock";
-  content?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
+  eyebrow?: string;
+  title?: string;
+  content?: PortableContent;
+  width?: "narrow" | "standard";
+  background?: "plain" | "light" | "brand" | "dark";
+  spacing?: "compact" | "standard" | "tall";
+  textSize?: "standard" | "large";
+  sectionId?: string;
 };
 
 export type FaqBlock = {
@@ -45,6 +35,11 @@ export type FaqBlock = {
     answer?: string;
     _key: string;
   }>;
+  background?: "plain" | "light" | "brand" | "dark";
+  spacing?: "compact" | "standard" | "tall";
+  width?: "narrow" | "standard" | "wide";
+  textAlign?: "left" | "center" | "right";
+  sectionId?: string;
 };
 
 export type LogoCloudBlock = {
@@ -56,6 +51,11 @@ export type LogoCloudBlock = {
     url?: string;
     _key: string;
   }>;
+  background?: "plain" | "light" | "brand" | "dark";
+  spacing?: "compact" | "standard" | "tall";
+  width?: "narrow" | "standard" | "wide";
+  textAlign?: "left" | "center" | "right";
+  sectionId?: string;
 };
 
 export type TestimonialBlock = {
@@ -64,6 +64,11 @@ export type TestimonialBlock = {
   avatar?: ImageWithAlt;
   name?: string;
   role?: string;
+  background?: "plain" | "light" | "brand" | "dark";
+  spacing?: "compact" | "standard" | "tall";
+  width?: "narrow" | "standard" | "wide";
+  textAlign?: "left" | "center" | "right";
+  sectionId?: string;
 };
 
 export type FullWidthMediaBlock = {
@@ -73,8 +78,11 @@ export type FullWidthMediaBlock = {
   body?: string;
   image?: ImageWithAlt;
   action?: Link;
-  background?: "plain" | "brand" | "dark";
+  background?: "plain" | "light" | "brand" | "dark";
+  spacing?: "compact" | "standard" | "tall";
+  width?: "narrow" | "standard" | "wide";
   textAlign?: "left" | "center" | "right";
+  sectionId?: string;
 };
 
 export type GalleryBlock = {
@@ -87,6 +95,13 @@ export type GalleryBlock = {
       _key: string;
     } & ImageWithAlt
   >;
+  background?: "plain" | "light" | "brand" | "dark";
+  spacing?: "compact" | "standard" | "tall";
+  width?: "narrow" | "standard" | "wide";
+  textAlign?: "left" | "center" | "right";
+  columns?: "2" | "3" | "4";
+  imageRatio?: "square" | "landscape" | "portrait" | "wide";
+  sectionId?: string;
 };
 
 export type ImageTextBlock = {
@@ -96,7 +111,15 @@ export type ImageTextBlock = {
   body?: string;
   image?: ImageWithAlt;
   action?: Link;
-  imagePosition?: "left" | "right";
+  background?: "plain" | "light" | "brand" | "dark";
+  spacing?: "compact" | "standard" | "tall";
+  width?: "narrow" | "standard" | "wide";
+  textAlign?: "left" | "center" | "right";
+  verticalAlign?: "top" | "center" | "bottom";
+  imageRatio?: "square" | "landscape" | "portrait" | "wide";
+  imageShape?: "square" | "rounded" | "soft";
+  imagePosition?: "left" | "right" | "alternate";
+  sectionId?: string;
 };
 
 export type FeatureGridBlock = {
@@ -110,6 +133,13 @@ export type FeatureGridBlock = {
     image?: ImageWithAlt;
     _key: string;
   }>;
+  background?: "plain" | "light" | "brand" | "dark";
+  spacing?: "compact" | "standard" | "tall";
+  width?: "narrow" | "standard" | "wide";
+  textAlign?: "left" | "center" | "right";
+  columns?: "2" | "3" | "4";
+  cardStyle?: "plain" | "bordered" | "elevated";
+  sectionId?: string;
 };
 
 export type CtaBlock = {
@@ -119,6 +149,11 @@ export type CtaBlock = {
   body?: string;
   primaryAction?: Link;
   secondaryAction?: Link;
+  background?: "plain" | "light" | "brand" | "dark";
+  spacing?: "compact" | "standard" | "tall";
+  width?: "narrow" | "standard" | "wide";
+  textAlign?: "left" | "center" | "right";
+  sectionId?: string;
 };
 
 export type HeroBlock = {
@@ -128,6 +163,20 @@ export type HeroBlock = {
   body?: string;
   image?: ImageWithAlt;
   cta?: Link;
+  layout?: "textOnly" | "imageRight" | "imageLeft" | "backgroundImage";
+  textAlign?: "left" | "center" | "right";
+  verticalAlign?: "top" | "center" | "bottom";
+  typographyScale?: "standard" | "large" | "editorial";
+  backgroundStyle?: "dark" | "light" | "brand" | "gradient";
+  verticalSpacing?: "compact" | "standard" | "tall" | "fullViewport";
+  sectionId?: string;
+};
+
+export type PageReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "page";
 };
 
 export type SanityImageAssetReference = {
@@ -136,6 +185,76 @@ export type SanityImageAssetReference = {
   _weak?: boolean;
   [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
 };
+
+export type PortableContent = Array<
+  | {
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h2" | "h3" | "h4" | "blockquote";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<
+        | {
+            href?: string;
+            openInNewTab?: boolean;
+            _type: "externalLink";
+            _key: string;
+          }
+        | {
+            page?: PageReference;
+            openInNewTab?: boolean;
+            _type: "internalLink";
+            _key: string;
+          }
+      >;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }
+  | ({
+      _key: string;
+    } & ImageWithAlt)
+  | {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      caption?: string;
+      width?: "narrow" | "standard" | "full";
+      align?: "left" | "center" | "right";
+      shape?: "square" | "rounded" | "soft";
+      _type: "portableImage";
+      _key: string;
+    }
+  | {
+      tone?: "note" | "tip" | "warning";
+      title?: string;
+      body?: string;
+      _type: "callout";
+      _key: string;
+    }
+  | {
+      action?: Link;
+      variant?: "primary" | "secondary";
+      _type: "contentAction";
+      _key: string;
+    }
+  | {
+      label?: string;
+      _type: "divider";
+      _key: string;
+    }
+  | {
+      quote?: string;
+      attribution?: string;
+      _type: "pullQuote";
+      _key: string;
+    }
+>;
 
 export type ImageWithAlt = {
   _type: "imageWithAlt";
@@ -154,13 +273,6 @@ export type Seo = {
   noIndex?: boolean;
 };
 
-export type PageReference = {
-  _ref: string;
-  _type: "reference";
-  _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "page";
-};
-
 export type Link = {
   _type: "link";
   label?: string;
@@ -168,6 +280,7 @@ export type Link = {
   page?: PageReference;
   href?: string;
   openInNewTab?: boolean;
+  variant?: "primary" | "secondary" | "inverse";
 };
 
 export type SiteSettings = {
@@ -179,12 +292,33 @@ export type SiteSettings = {
   title?: string;
   description?: string;
   logoText?: string;
+  copyrightStartYear?: number;
   primaryNavigation?: Array<
     {
       _key: string;
     } & Link
   >;
+  footerTagline?: string;
   footerNavigation?: Array<
+    {
+      _key: string;
+    } & Link
+  >;
+  footerMenus?: Array<{
+    title?: string;
+    links?: Array<
+      {
+        _key: string;
+      } & Link
+    >;
+    _key: string;
+  }>;
+  footerContact?: {
+    email?: string;
+    phone?: string;
+    address?: string;
+  };
+  socialLinks?: Array<
     {
       _key: string;
     } & Link
@@ -364,10 +498,11 @@ export type AllSanitySchemaTypes =
   | FeatureGridBlock
   | CtaBlock
   | HeroBlock
+  | PageReference
   | SanityImageAssetReference
+  | PortableContent
   | ImageWithAlt
   | Seo
-  | PageReference
   | Link
   | SiteSettings
   | Page
