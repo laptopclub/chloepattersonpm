@@ -15,8 +15,7 @@ const fallbackBlocks: PageBlock[] = [
     _type: "heroBlock",
     eyebrow: "Foundation",
     title: "A reusable launchpad for client websites",
-    body: "Next.js, Sanity, Tailwind, analytics and deployment conventions in one maintainable framework.",
-    cta: { label: "Start building", href: "/studio" }
+    body: "Next.js, Sanity, Tailwind, analytics and deployment conventions in one maintainable framework."
   }
 ];
 
